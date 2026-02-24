@@ -7,7 +7,7 @@ import EventRegesterationRoutes from "./routes/EventRegesterationRoutes";
 import NewMemberRegesterationRoutes from "./routes/NewMemberRegesterationRoutes";
 import MemberRoutes from "./routes/MembersRoutes";
 import adminRoutes from "./routes/AdminRoutes";
-import dotenv from "dotenv";    
+import dotenv from "dotenv";
 import { sessionMiddleware } from "./config/session";
 
 
@@ -23,8 +23,8 @@ app.use(
   })
 );
 app.use(express.json());
-app.use(cookieParser());
-app.use(sessionMiddleware);
+// app.use(cookieParser());
+// app.use(sessionMiddleware);
 
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - Body:`, req.body);

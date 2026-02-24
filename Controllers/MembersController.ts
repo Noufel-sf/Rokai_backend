@@ -147,7 +147,7 @@ export const changeRole = async (
   try {
     const { role } = req.body;
 
-    if (!["عضو", "منخرط"].includes(role)) {
+    if (!["member", "new" , "admin"].includes(role)) {
       return res.status(400).json({
         message: "Invalid role",
       });
