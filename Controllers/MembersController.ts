@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import Member from "../Models/Member";
 
-type RoleType = "عضو" | "منخرط" | "مسؤول" | "admin";
+type RoleType = "عضو" | "منخرط" | "مسؤول" | "admin" ;
 
 interface QueryParams {
   page?: string;
