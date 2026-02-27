@@ -7,7 +7,7 @@ export const sessionMiddleware = session({
   saveUninitialized: false,
 
   store: MongoStore.create({
-    mongoUrl: process.env.MONGO_URI,
+    mongoUrl: (process.env.MONGO_URI as string),
   }),
 
   cookie: {

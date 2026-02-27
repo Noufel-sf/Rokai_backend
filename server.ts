@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import session from "express-session";
+import bcrypt from "bcryptjs";
 import EventRegesterationRoutes from "./routes/EventRegesterationRoutes";
 import NewMemberRegesterationRoutes from "./routes/NewMemberRegesterationRoutes";
 import MemberRoutes from "./routes/MembersRoutes";
@@ -18,13 +19,13 @@ const app = express();
 
 app.use(
   cors({
-    origin: "*", 
-    // credentials: true, 
+    origin: "http://localhost:5173",
+    credentials: true, 
   })
 );
 app.use(express.json());
-// app.use(cookieParser());
-// app.use(sessionMiddleware);
+app.use(cookieParser());
+app.use(sessionMiddleware);
 
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - Body:`, req.body);
@@ -73,6 +74,14 @@ app.get("/", (req, res) => {
   res.send("API WORKING");
 });
 
+
+const SALT_ROUNDS = 12;
+
+
+(async () => {
+  const hash = await bcrypt.hash("nounou12as", 12);
+  console.log(hash);
+})();
 
 // the order matters 
 // express.json
