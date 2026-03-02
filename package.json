@@ -1,13 +1,13 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.ts",
-  "scripts": {
-    "start": "env-cmd -f dev.env nodemon",
-    "dev": "env-cmd -f dev.env nodemon",
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "dist/server.js",
+  
+ "scripts": {
+  "build": "tsc",
+  "start": "node dist/server.js",
+  "dev": "env-cmd -f dev.env nodemon server.ts"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -11,17 +11,14 @@ import adminRoutes from "./routes/AdminRoutes";
 import dotenv from "dotenv";
 import { sessionMiddleware } from "./config/session";
 
-
-
-
 dotenv.config();
 const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173" , "https://rokaichabab.vercel.app"],
-    credentials: true, 
-  })
+    origin: ["http://localhost:5173", "https://rokaichabab.vercel.app"],
+    credentials: true,
+  }),
 );
 app.use(express.json());
 app.use(cookieParser());
@@ -32,16 +29,13 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
 const username = process.env.MONGO_USERNAME;
 const password = process.env.MONGO_PASSWORD;
 const DBname = process.env.MONGO_DBNAME;
 console.log(username, password, DBname);
 
-const SESSION_SECRET = process.env.SESSION_SECRET || "gasghal;k;lk;lgddswttttsss";
-
-
+const SESSION_SECRET =
+  process.env.SESSION_SECRET || "gasghal;k;lk;lgddswttttsss";
 
 // using the routes
 // app.use("/api/v1/register", RegesterationRoutes);
@@ -51,13 +45,10 @@ app.use("/api/v1/admin", adminRoutes);
 app.use("/api/v1/new-member-register", NewMemberRegesterationRoutes);
 app.use("/api/v1/members", MemberRoutes);
 
-
-
-
 const startServer = async () => {
   try {
     await mongoose.connect(
-      `mongodb+srv://${username}:${password}@rokaiwebsite.ywa5gnt.mongodb.net/${DBname}?appName=Rokaiwebsite`
+      `mongodb+srv://${username}:${password}@rokaiwebsite.ywa5gnt.mongodb.net/${DBname}?appName=Rokaiwebsite`,
     );
 
     app.listen(3000, () => {
@@ -74,16 +65,14 @@ app.get("/", (req, res) => {
   res.send("API WORKING");
 });
 
-
 const SALT_ROUNDS = 12;
-
 
 (async () => {
   const hash = await bcrypt.hash("nounou12as", 12);
   console.log(hash);
 })();
 
-// the order matters 
+// the order matters
 // express.json
 // cookieParser
 // session
