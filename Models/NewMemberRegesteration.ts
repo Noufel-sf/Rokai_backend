@@ -2,12 +2,7 @@ import mongoose from "mongoose";
 
 const NewMemberRegistrationSchema = new mongoose.Schema(
   {
-    registrationId: {
-      type: String,
-      unique: true,
-      trim: true,
-    },
-
+  
     submittedAt: {
       type: Date,
       default: Date.now,
