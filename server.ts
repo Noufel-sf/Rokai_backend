@@ -16,7 +16,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://rokaichabab.vercel.app"],
+    origin: ["https://human-resources-ten.vercel.app", "https://rokaichabab.vercel.app"],
     credentials: true,
   }),
 );
