@@ -31,7 +31,7 @@ const MemberSchema = new mongoose.Schema(
 
     currentStatus: {
       type: String,
-      enum: ["student", "employee", "unemployed"],
+      enum: ["student", "employee", "unemployed" , "freelancer"],
       required: true,
     },
 
@@ -109,8 +109,6 @@ const MemberSchema = new mongoose.Schema(
 
     role: {
       type: String,
-      enum: ["member", "new" , "admin"],
-      default: "new",
     },
 
 

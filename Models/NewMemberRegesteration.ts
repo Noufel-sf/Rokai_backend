@@ -43,7 +43,7 @@ const NewMemberRegistrationSchema = new mongoose.Schema(
 
     currentStatus: {
       type: String,
-      enum: ["student", "employee", "unemployed"],
+      enum: ["student", "employee", "unemployed" , "freelancer"],
     },
 
     specialization: {
